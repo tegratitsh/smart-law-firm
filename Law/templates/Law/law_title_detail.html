@@ -1,0 +1,39 @@
+{% extends "templates_bases.html" %}
+
+
+
+{% block content %}
+
+{% include "Law/law_navbar.html" %}
+<div class="row">
+  <div class="col-sm-6">
+    <h3>Service : {{ title.name }}</h3>
+
+  <ul class="list-group list-group-flush">
+    {% for service in title.service_set.all  %}
+      <li class="list-group-item">{{ service.name }}</li>
+        {% endfor %}
+  </ul>
+
+  </div>
+  <div class="col-sm-6">
+    {% include "Law/law_card_service.html" %}
+  </div>
+</div>
+
+
+
+<h5>{{ title.area.name }}</h5>
+<p>Afficher les restes des services, juste à cotés : </p>
+
+ {% for title in titles %}
+
+  <h3>{{ title.name }} -  {{ title.area.name }}</h3>
+   
+ {% endfor %}
+
+ <h1> <a href="{% url 'law-contact' %}">entrez en contact avec nous !</a></h1>
+
+{% endblock content %}
+
+

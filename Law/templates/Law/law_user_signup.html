@@ -1,0 +1,42 @@
+{% extends "templates_bases.html" %}
+
+
+
+{% block content %}
+
+{% include "Law/law_navbar.html" %}
+
+
+<h3>S'inscrire</h3>
+
+
+<h3>Se connecter vous !</h3>
+
+
+<form action="#" method="post">
+    
+    
+    {% csrf_token %}
+    
+    <label for="username">Nom d'utilisateur :</label>
+    <input type="text" name="username" id="username" required>
+
+    <label for="email">Email :</label>
+    <input type="email" name="email" id="email" placeholder="Entrez votre adresse mail" required>
+
+    <label for="password1">Mot de Passe :</label>
+    <input type="password" name="password1" id="password1" required>
+
+    <label for="password2">Confirmez le Mot de Passe :</label>
+    <input type="password" name="password2" id="password2" required>
+
+
+    <input type="submit" value="se connecter">
+
+    <a href="{% url 'law-user-login' %}">Avez-vous deja un compte ?</a>
+
+</form>
+
+
+{% endblock content %}
+

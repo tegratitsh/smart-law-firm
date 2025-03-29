@@ -1,0 +1,62 @@
+{% extends "templates_bases.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Modifier : {{ area.name }}</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.name.label_tag }}
+            {{ form.name }}
+        </div>
+        <div class="mb-3">
+            {{ form.topic.label_tag }}
+            {{ form.topic }}
+        </div>
+        <div class="mb-3">
+            {{ form.image.label_tag }}
+            {{ form.image }}
+        </div>
+        <div class="mb-3">
+            {{ form.tag.label_tag }}
+            {{ form.tag }}
+        </div>
+        <div class="mb-3">
+            {{ form.description.label_tag }}
+            {{ form.description }}
+        </div>
+        <button type="submit" class="btn btn-primary">Sauvegarder</button>
+        <a href="{% url 'law-file-manager' %}" class="btn btn-secondary">Retour</a>
+    </form>
+</div>
+  
+{% endblock content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Modifier : {{ area.name }}</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.name.label_tag }}
+            {{ form.name }}
+        </div>
+        <div class="mb-3">
+            {{ form.topic.label_tag }}
+            {{ form.topic }}
+        </div>
+        <div class="mb-3">
+            {{ form.image.label_tag }}
+            {{ form.image }}
+        </div>
+        <div class="mb-3">
+            {{ form.tag.label_tag }}
+            {{ form.tag }}
+        </div>
+        <div class="mb-3">
+            {{ form.description.label_tag }}
+            {{ form.description }}
+        </div>
+        <button type="submit" class="btn btn-primary">Sauvegarder</button>
+        <a href="{% url 'areas-list' %}" class="btn btn-secondary">Retour</a>
+    </form>
+</div>

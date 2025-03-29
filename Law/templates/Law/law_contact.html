@@ -1,0 +1,26 @@
+{% extends "templates_bases.html" %}
+
+
+
+{% block content %}
+
+{% include "Law/law_navbar.html" %}
+
+{% include "Law/law_contact_form.html" %}
+<div class="d-grid">
+  <button type="button" class="btn btn-primary btn-block">Voir les personnes qui nous ont cantacté</button>
+</div>
+
+<h4><a href="{% url 'law-contact-management' %}"></a></h4>
+<p>
+  <a href="{% url 'law-folder' %}">Soumettez directement votre préoccupation sous forme d'un dossier !</a>
+</p>
+
+<h1>c'est ic</h1>
+{% if request.user.is_authenticated %}
+    <li><a href="{% url 'law-contact-management' %}">Messages</a></li>
+{% endif %}
+
+
+
+{% endblock content %}

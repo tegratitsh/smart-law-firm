@@ -1,0 +1,34 @@
+{% extends "templates_bases.html" %}
+
+
+
+{% block content %}
+{% include "Law/law_navbar.html" %}
+
+<div class="container p-5 my-5 border">
+    <h3>Gestionnaire des fichiers (dossier(s))</h3>
+
+    {% for folder in folders %}
+
+        <h3>{{ folder.full_name }}</h3>
+        <h3>{{ folder.email }}</h3>
+        <h3>{{ folder.profession }}</h3>
+        <h3>{{ folder.topic }}</h3>
+        <p>{{ folder.description }}</p>
+        <h3>{{ folder.created }}</h3>
+        
+        <h3>{{ folder.statut }}</h3>
+        
+        <hr>
+      
+    {% endfor %}
+
+
+</div>
+
+    
+
+
+    <h1><a href="{% url 'law-contact' %}">entrez en contact avec nous !</a></h1>
+
+{% endblock content %}

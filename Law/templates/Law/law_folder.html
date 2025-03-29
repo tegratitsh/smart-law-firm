@@ -1,0 +1,21 @@
+{% extends "templates_bases.html" %}
+
+
+
+{% block content %}
+
+{% include "Law/law_navbar.html" %}
+
+
+
+
+        <h1>Soumettez votre préoccupation</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Affiche le formulaire sous forme de paragraphes -->
+        <button type="submit">Envoyer</button>
+    </form>
+
+    
+
+{% endblock content %}

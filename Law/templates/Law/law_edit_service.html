@@ -1,0 +1,34 @@
+{% extends "templates_bases.html" %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2>Modifier le Service</h2>
+        <form method="post" action="{% url 'law-edit-service' service.id %}">
+            {% csrf_token %}
+
+            <!-- Champ Title hérité -->
+            <div class="form-group">
+                <label for="id_title">Titre :</label>
+                <select id="id_title" name="title" class="form-control">
+                    {% for title in titles %}
+                        <option value="{{ title.id }}" {% if title.id == service.title.id %}selected{% endif %}>
+                            {{ title.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- Champ Name -->
+            <div class="form-group mt-3">
+                <label for="id_name">Nom du Service :</label>
+                <input type="text" id="id_name" name="name" value="{{ service.name }}" class="form-control" required>
+            </div>
+            
+            <!-- Boutons -->
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                <a href="{% url 'law-home' %}" class="btn btn-secondary">Annuler</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

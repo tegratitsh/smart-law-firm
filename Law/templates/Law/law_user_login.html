@@ -1,0 +1,32 @@
+{% extends "templates_bases.html" %}
+
+
+
+{% block content %}
+
+{% include "Law/law_navbar.html" %}
+
+
+{% include "Law/law_login_form.html" %}
+
+
+
+<h3>Se connecter vous !</h3>
+
+
+<form action="{% url 'law-user-login' %}" method="post">
+    
+    
+    {% csrf_token %}
+    
+    <label for="username">Nom d'utilisateur :</label>
+    <input type="text" name="username" id="username" required>
+    <label for="password">Mot de Passe :</label>
+    <input type="password" name="password" id="password" required>
+
+
+    <input type="submit" value="se connecter">
+</form>
+
+{% endblock content %}
+

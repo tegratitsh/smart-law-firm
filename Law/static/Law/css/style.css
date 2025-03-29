@@ -1,0 +1,149 @@
+*{
+    font-family:'Times New Roman', Times, serif;
+  }
+  
+body{
+    padding-top: 50px; /* Ajustez la valeur selon la hauteur de votre navbar */
+    margin: 0; padding: 0;
+}
+
+.container { max-width: 1200px; margin: auto; padding: 20px; }
+/* SECTION NAVBAR*/
+/* Titre au survol */
+.custom-navbar .navbar-brand:hover {
+  color: #FFD700;
+}
+
+/* Changer la couleur de l'arrière-plan */
+.custom-navbar {
+  background-color: #2031AC; /* Vert élégant #504CAF*/
+  padding: 10px 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre subtile */
+}
+/* Agrandir les liens */
+.custom-navbar .nav-link {
+  font-size: 1.2rem; /* Taille augmentée des liens */
+  color: #ffffff; /* Couleur blanche pour les liens */
+  transition: color 0.3s ease-in-out; /* Effet de transition */
+}
+.navbar-brand {
+  color: #ffac12 /* Définit la couleur blanche pour le lien "SMART LAW FIRM" */
+}
+/* Effet au survol (hover) */
+.custom-navbar .nav-link:hover {
+  color: #fff; /* Couleur dorée au survol */
+  text-decoration: underline; /* Ligne soulignée */
+}
+.btn-primary {
+  background-color: #ffac12; /* Bleu sombre */
+  border-color: #2031AC;    /* Même couleur pour les bordures */
+  color: #000;             /* Couleur du texte */
+  font-weight: bold;        /* Texte en gras */
+  padding: 10px 20px;       /* Espacement intérieur */
+  border-radius: 5px;       /* Coins arrondis */
+  transition: all 0.3s ease; /* Animation lors du survol */
+}
+.btn-primary a{
+  text-decoration: none;    /* Supprime le soulignement */
+  color: #000;             /* Garantit que le texte reste blanc */
+}
+
+/* Effet de survol */
+.btn-primary:hover {
+  background-color: #ffac12; /* Teinte légèrement plus foncée */
+  border-color: #1C2A92;    /* Bordure assortie */
+  color: #f8f9fa;           /* Couleur du texte au survol */
+}
+.btn-primary a:hover {
+  color: #000;           /* Couleur du texte au survol */
+}
+
+/* Supprimer la décoration des liens dans les boutons */
+
+/* END SECTION NAVBAR*/
+
+/* CAROUSEL SECTION */
+
+.carousel-item{
+  height: 100vh;
+  min-height: 300px;
+}
+
+.carousel-caption{
+  bottom: 75px;
+  z-index: 2;
+}
+.carousel-caption h1{
+  font-size: 45px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+.carousel-caption h5{
+  font-size: 30px;
+  margin: auto;
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+.carousel-caption a{
+  margin-top: 50px;
+}
+.carousel-inner::before{
+  content: "";
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  width: 100%;
+  z-index: 1;
+}
+/* END CAROUSEL SECTION */
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%; /* Force la carte à remplir toute la largeur */
+  margin: 0;   /* Supprime les marges indésirables */
+  padding: 15px; /* Ajuste l'espacement interne */
+}
+.form-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .btn-custom {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 20px;
+  }
+  .btn-custom:hover {
+    background-color: #0056b3;
+  }
+
+/* END CAROUSEL SECTION */
+
+/* CARD SECTION */
+.card {
+  background-color: inherit; /* Correspond à la couleur du body */
+  border: none;              /* Supprime la bordure de la carte */
+  box-shadow: none;          /* Supprime l'effet 3D de l'ombre */
+}
+
+.card-body {
+  padding: 15px;             /* Ajuste l'espacement interne pour un meilleur rendu */
+}
+
+/* Enlever l'effet ombré sur les images si existant */
+.card-img-top {
+  box-shadow: none;
+}
+
+.card-title{
+  background-color: #1C2A92;
+}

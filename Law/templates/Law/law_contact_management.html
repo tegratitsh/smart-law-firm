@@ -1,0 +1,31 @@
+{% extends "templates_bases.html" %}
+
+
+
+{% block content %}
+
+{% include "Law/law_navbar.html" %}
+
+
+    <li><a href="{% url 'law-meeting' %}">Rendez-vous</a></li>
+
+    <h1>Bonjour</h1>
+ {% for contact in contacts %}
+
+    <h3>{{ contact.full_name }}</h3>
+    <h3></h3>
+
+    <p>{{ contact.phone }}</p>
+    <p>{{ contact.email }}</p>
+
+    <p>{{ contact.created }}</p>
+    <hr>
+ 
+   
+ {% endfor %}
+
+    
+
+
+
+{% endblock content %}

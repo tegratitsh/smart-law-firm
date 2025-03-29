@@ -1,0 +1,24 @@
+<div class="row">
+{% for area in areas %}
+
+<div class="col-sm-4">
+<div class="card" style="width: 25rem;">
+    <img src="{{ area.image.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h2 class="card-title">{{ area.name }}</h2>
+      <p class="card-text">{{ area.topic }}</p>
+      <ul>
+        {% for title in area.title_set.all %}
+            {% for service in title.service_set.all %}
+            <li class="list-group-item">{{ service.name }}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+    </div>
+  </div>
+</div>
+  {% endfor %}
+</div>
+
+
+

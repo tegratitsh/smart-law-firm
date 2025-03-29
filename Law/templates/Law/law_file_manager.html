@@ -1,0 +1,22 @@
+{% extends "templates_bases.html" %}
+
+
+
+{% block content %}
+
+{% include "Law/law_navbar.html" %}
+
+    <h3>Gestionnaire des fichiers</h3>
+    {% if request.user.is_authenticated %}
+<h4><a href="{% url 'law-folder-management' %}">Dossier en attente </a></h4>
+{% endif %}
+
+{% include "Law/law_card_file_manage.html" %}
+
+<h3>Cliquez sur l'élelement que vous vouler modifier</h3>
+
+{% include "Law/law_card_title_file_manage.html" %}
+
+
+
+{% endblock content %}
