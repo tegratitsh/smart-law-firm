@@ -105,7 +105,7 @@ def law_home_view(request):
 
     print(titles)
 
-    return render(request, 'Law/law_home.html', context)
+    return render(request, 'Law/index.html', context)
 
 
 def law_contact_view(request):
