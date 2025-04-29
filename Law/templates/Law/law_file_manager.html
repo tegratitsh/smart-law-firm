@@ -6,16 +6,24 @@
 
 {% include "Law/law_navbar.html" %}
 
-    <h3>Gestionnaire des fichiers</h3>
-    {% if request.user.is_authenticated %}
-<h4><a href="{% url 'law-folder-management' %}">Dossier en attente </a></h4>
-{% endif %}
+
+<body class="law-file-manage">
+
+    <div class="container manage">
+        <h3>Gestionnaire des fichiers</h3>
+        <p>Vou naviguer en tant qu'administrateur. Cette page est reservé à la gestion (Création, Modification et la suppréssion de informations liées au site). Toute les modifications que vous apporterez vous etre immédiatement appliquées. Soyez vigilant !!!</p>
+        
+
 
 {% include "Law/law_card_file_manage.html" %}
-
-<h3>Cliquez sur l'élelement que vous vouler modifier</h3>
-
 {% include "Law/law_card_title_file_manage.html" %}
+
+
+
+
+</body>
+
+
 
 
 

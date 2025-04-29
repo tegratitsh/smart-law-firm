@@ -6,21 +6,31 @@
 
 {% include "Law/law_navbar.html" %}
 
-{% include "Law/law_contact_form.html" %}
-<div class="d-grid">
-  <button type="button" class="btn btn-primary btn-block">Voir les personnes qui nous ont cantacté</button>
-</div>
+<body class="contact-page">
 
-<h4><a href="{% url 'law-contact-management' %}"></a></h4>
-<p>
-  <a href="{% url 'law-folder' %}">Soumettez directement votre préoccupation sous forme d'un dossier !</a>
-</p>
+<div class="container contact-text">
 
-<h1>c'est ic</h1>
-{% if request.user.is_authenticated %}
-    <li><a href="{% url 'law-contact-management' %}">Messages</a></li>
+  <h3>Besoin d'Assistance Juridique ?</h3>
+  <h5>
+     Nous nous engageons à vous offrir des solutions juridiques viables et efficaces, vous fournir des informations véridiques et nous vous accompagneront dans votre quête des documents juridiques crédibles.
+                     
+      
+  </h5>
+  {% if request.user.is_authenticated %}
+  <a href="{% url 'law-contact-list' %}">Voir les personnes qui nous ont contacté !</a>
 {% endif %}
+  
+  {% include "Law/law_contact_form.html" %}
 
+
+  
+</div>
+  
+
+
+</body>
+
+{% include "Law/law_footer.html" %}
 
 
 {% endblock content %}

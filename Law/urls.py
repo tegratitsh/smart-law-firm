@@ -8,6 +8,7 @@ urlpatterns = [
     path('', views.law_home_view, name='law-home'),
     path('area/', views.law_area_view, name='law-area'),
     path('law-contact/', views.law_contact_view, name='law-contact'),
+    path('law-contact-list/', views.law_contact_list_view, name='law-contact-list'),
     path('law-team/', views.law_team_view, name='law-team'),
     path('law-about/', views.law_about_view, name='law-about'),
 

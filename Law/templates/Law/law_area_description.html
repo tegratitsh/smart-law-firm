@@ -1,0 +1,21 @@
+<div class="container area-description">
+    <div class="row d-flex align-items-end">
+        {% for area in areas %}
+        <div class="col-sm-4">
+            <div class="card w-100" style="width: 25rem;">
+                <div class="card-body">
+                  <h2>{{ area.name }}</h2>
+                  <hr>
+                  <p class="card-text">{{ area.description }}</p>
+                  <button type="button" class="btn btn-primary w-100">
+                    <a href="{% url 'law-area-detail' area.id %}">{{ area.name }}</a>
+                  </button>
+                </div>
+              </div>
+        </div>
+        
+          {% endfor %}
+    </div>
+</div>
+
+

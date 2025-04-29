@@ -5,34 +5,30 @@
 {% block content %}
 
 {% include "Law/law_navbar.html" %}
-<div class="row">
-  <div class="col-sm-6">
-    <h3>Service : {{ title.name }}</h3>
 
-  <ul class="list-group list-group-flush">
-    {% for service in title.service_set.all  %}
-      <li class="list-group-item">{{ service.name }}</li>
-        {% endfor %}
-  </ul>
+<body class="title-detail-page">
+  <div class="container">
+    <div class="row">
+      <div class="title-detail">
+        <h3><a {% if request.user.is_authenticated %} href="{% url 'law-edit-title' title.id%}" {% else%} href="#" {% endif %}>{{ title.name }}</a></h3>
+        <ul class="list-group list-group-flush">
+          {% for service in title.service_set.all  %}
+            <li class="list-group-item">
+              <a {% if request.user.is_authenticated %} href="{% url 'law-edit-service' service.id %}" {% else%} href="#" {% endif %}>{{ service.name }}</a>
+            </li>
+          </div>
+          {% endfor %}
+        </ul>
+      </div>
+  </div>
+
 
   </div>
-  <div class="col-sm-6">
-    {% include "Law/law_card_service.html" %}
-  </div>
-</div>
+  
+</body>
 
+{% include "Law/law_footer.html" %}
 
-
-<h5>{{ title.area.name }}</h5>
-<p>Afficher les restes des services, juste à cotés : </p>
-
- {% for title in titles %}
-
-  <h3>{{ title.name }} -  {{ title.area.name }}</h3>
-   
- {% endfor %}
-
- <h1> <a href="{% url 'law-contact' %}">entrez en contact avec nous !</a></h1>
 
 {% endblock content %}
 

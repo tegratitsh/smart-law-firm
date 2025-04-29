@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import RegexValidator
 from django.contrib.auth.models import AbstractUser
 
 
@@ -55,11 +56,16 @@ class Service(models.Model):
         return f'{self.name} - {(self.title)}'
     
 class Contact(models.Model):
-    
     full_name = models.CharField(max_length=100)
     email = models.EmailField()
-    phone = models.CharField(max_length=15, blank=True, null=True)
-    full_name = models.CharField(max_length=255)
+    phone = models.CharField(
+        max_length=15,
+        blank=True,
+        null=True,
+        validators=[RegexValidator(regex=r'^\d{8,15}$', message="Le numéro doit contenir uniquement des chiffres (8-15 caractères).")]
+    )
+    profession = models.CharField(max_length=15, blank=True, null=True)
+    description = models.TextField(blank=True, null=True, default="")
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

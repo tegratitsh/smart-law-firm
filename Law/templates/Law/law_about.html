@@ -7,14 +7,36 @@
 {% block content %}
 
 {% include "Law/law_navbar.html" %}
-<img src="{% static 'Law/images/slf_about.jpg' %}" alt="Mon image statique" />
 
-<h1>Qui sommes-nous ?</h1>
 
-   <h4 class="card-title">CABINET JURIDIQUE </h4>
-        <h5 class="card-title2">DE CONSULTATION, CONSEIL ET ASSISTANCE JURIDIQUE</h5>
-        <hr>
-        <h6>SMART LAW FIRM est un cabinet Juridique de Consultation, de Conseil et d'Assistance situé en République Démocratique du Congo, dans la Ville/Province de Kinshasa.<br><br>Nous nous engageons à vous offrir des solutions juridiques viables et efficaces, vous fournir des informations véridictes et vous en accompagner dans votre quete des documents juridiques crédibles. <br><br>Notre équipe d'avocats expérimentés est là pour vous guider étape par étapes suivant vos attentes en mettant à votre disposition des services personnalisé.</h6>
+<body class="about-page">
+        <div class="container about-style">
+                <div class="row">
+                        <div class="col-sm-6">
+                                
+                     <h3>SMART LAW FIRM est un cabinet Juridique de Consultation, de Conseil et d'Assistance juridique, Son siège se situe dans la Ville/Province de Kinshasa, en République Démocratique du Congo. </h3>
+
+                     <h3> Nous nous engageons à vous offrir des solutions juridiques viables et efficaces, vous fournir des informations véridiques et nous vous accompagneront dans votre quête des documents juridiques crédibles. </h3>
+                        
+                     <h3> Notre équipe d'avocats expérimentés est là pour vous guider pas à pas suivant vos attentes en mettant à votre disposition des services personnalisés</h3>
+                    
+                        <h1><a href="{% url 'law-contact' %}">entrez en contact avec nous !</a></h1>
+                        
+                        </div>
+                        <div class="col-sm-6">
+                                <img src="{% static 'Law/images/slf_about.jpg' %}" alt="Mon image statique" />
+                
+                        </div>
+                </div>
+
         
-        <h1><a href="{% url 'law-contact' %}">entrez en contact avec nous !</a></h1>
+        
+x
+       
+        </div>
+        
+</body>
+{% include "Law/law_footer.html" %}
+
+
 {% endblock content %}

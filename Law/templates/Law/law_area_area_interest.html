@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row align-buttons">
+        {% for area in areas %}
+        <div class="image-container col-lg-4 col-sm-12">
+            <div class="card area-card">
+                <h4 class="card-title text-center">
+                    <a href="{% url 'law-area'%}">{{ area.name }}</a>
+                </h4>
+                <img src="{{ area.image.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">
+                        <a href="{% url 'law-area'%}">{{ area.topic }}</a>
+                    </h5>
+                    <hr>
+                     <p class="card-text">{{ area.description }}</p>
+                     <h5 class="card-title">{{ area.tag }}</h5>
+                </div>
+                
+          </div>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+<hr>

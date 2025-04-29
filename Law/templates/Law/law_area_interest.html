@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row align-buttons">
+        {% for area in areas %}
+        <div class="image-container col-lg-4 col-sm-12">
+            <div class="card">
+                <img src="{{ area.image.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{% url 'law-area'%}">{{ area.name }}</a></h5>
+                    <hr>
+                     <p class="card-text">{{ area.description }}</p>
+                </div>
+          </div>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+<hr>

@@ -1,33 +1,44 @@
-<div class="container mt-5">
-    <div class="form-container bg-form bg-image">
-      <h2 class="text-center mb-4">
-        <a href="{% url 'law-folder' %}">Laissez-nous un message</a></h2>
-      <form method="post">
-        {% csrf_token %}
-        <div class="mb-3">
-            {{ form.full_name.label_tag }}
-            {{ form.full_name }}
-        </div>
-        <div class="mb-3">
-            {{ form.email.label_tag }}
-            {{ form.email }}
-        </div>
-        <div class="mb-3">
-            {{ form.phone.label_tag }}
-            {{ form.phone }}
-        </div>
-        <div class="mb-3">
-            {{ form.message.label_tag }}
-            {{ form.message }}
-        </div>
-        <div class="mb-3">
-            {{ form.created.label_tag }}
-            {{ form.created }}
-        </div>
-        <button type="submit" class="btn btn-primary">Envoyer</button>
-    </form>
-    
+<!-- Page contact -->
+    <div class="contact-form">
+        <div class="form-container bg-form bg-image">
+          <h2 class="text-center mb-4">
+            Contactez-nous !</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <button type="submit" class="btn btn-primary">Envoyez</button>
+            </form>
+
+            {% if form.errors %}
+    <div class="alert alert-danger">
+        <ul>
+            {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                    <li>{{ field }} : {{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
     </div>
-</div>
-       
+{% endif %}
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    document.getElementById("id_phone").addEventListener("input", function(event) {
+                        this.value = this.value.replace(/\D/g, ''); // Supprime tous les caractères non numériques
+                    });
+                });
+                </script>
+                
+
+        </div>
+    </div>
+           
+    <!-- Contenu de la page -->
+
+
+
+
+
+
 

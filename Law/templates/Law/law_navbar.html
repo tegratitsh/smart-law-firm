@@ -1,5 +1,5 @@
 
-<nav  class="navbar navbar-expand-lg body-bg-tertify fixed-top custom-navbar">
+<nav  class="navbar navbar-expand-lg fixed-top custom-navbar">
     <div class="container-fluid">
       <a class="navbar-brand" href="{% url 'law-home' %}">SMART LAW FIRM</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,27 +25,16 @@
             </a>
             <ul class="dropdown-menu">
                 {% for title in titles  %}
-                <li><a class="dropdown-item" href="{% url 'law-title-detail' title.id %}">{{ title.name }}</a></li>
+                <li><a class="dropdown-item" href="#">{{ title.name }}</a></li>
                 {% endfor %}
             </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link " aria-current="page" href="{% url 'law-about' %}">Qui sommes-nous ?</a>
           </li>
-          
         </ul>
-        {% if request.user.is_authenticated %}
-          <button type="button" class="btn btn-primary">
-            <a href="{% url 'law-file-manager' %}">Gestionnaire</a>
-          </button>
-        <button type="button" class="btn btn-primary">
-          <a href="{% url 'law-user-logout' %}">Se Déconnecter</a>
-        </button>
-          {% else %}
-          <button type="button" class="btn btn-primary">
-            <a href="{% url 'law-user-login' %}">Se Connecter</a>
-          </button>
-          {% endif %}
+        
+        
         
       </div>
     </div>

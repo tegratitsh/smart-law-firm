@@ -10,81 +10,20 @@
 {% include "Law/law_carousel.html" %}
 
 
-
-{% include "Law/law_card_title.html" %}
-
-
-
-
-<div class="row d-flex align-items-end"">
-    {% for area in areas %}
-    <div class="col-sm-4">
-        <div class="card w-100" style="width: 25rem;">
-            <div class="card-body">
-              
-
-              <p class="card-text">{{ area.description }}</p>
-              <h5 class="card-title text-center p-2"><a href="{% url 'law-area-detail' area.id %}">{{ area.name }}</a></h5>
-           
-            </div>
-          </div>
-    </div>
-    
-      {% endfor %}
+<div class="container">
+    <h2 class="branch">NOS PRINCIPALES BRANCHES D'INTERVENTION</h2>
 </div>
 
 
-    <div class="row">
-        <div class="col-sm-8">
-            {% include "Law/law_contact_form.html" %}
-        </div>
-        <div class="col-sm-4">
-                <p>
-                    SMART LAW FIRM est un cabinet Juridique de Consultation, de Conseil et d'Assistance situé en République Démocratique du Congo, dans la Ville/Province de Kinshasa.
 
-Nous nous engageons à vous offrir des solutions juridiques viables et efficaces, vous fournir des informations véridictes et vous en accompagner dans votre quete des documents juridiques crédibles.
+{% include "Law/law_card_title.html" %}
 
-Notre équipe d'avocats expérimentés est là pour vous guider étape par étapes suivant vos attentes en mettant à votre disposition des services personnalisé.
-                </p>
+<div class="row">
+    <h4 class="branch">Quel Domaine vous interesse le plus?</h4>
+</div>
 
-        </div>
-    </div>
+{% include "Law/law_area_interest.html" %}
 
-    
-
-<hr>
-<p>smartlawfirm1@gmail.com, jour date, heure, réseaux sociaux +243 85 009 65 25</p>
-<hr>
-
-    <h1>SMART LAW FIRM</h1>
-    <h2><a href="{% url 'law-user-signup' %}">S'inscrire</a></h2>
-
-
-
-    <h2>Quel domaine vous interesse le plus ? </h2>
-
-    
-
-    <h3><a href="{% url 'law-folder' %}">Laissez-nous un message</a></h3>
-
-    <h1>Remplissez ce formulaire pour <a href="{% url 'law-contact' %}">entrez en contact avec nous !</a></h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}  <!-- Affiche le formulaire sous forme de paragraphes -->
-        <button type="submit">Envoyer</button>
-    </form>
-
-    <p>
-        <a href="{% url 'law-folder' %}">Soumettez directement votre préoccupation sous forme d'un dossier !</a>
-    </p>
-
-        <ul>
-            <li>fa-whatsapp</li>
-            <li>fa-whatsapp</li>
-            <li>fa-whatsapp</li>
-            <li>fa-whatsapp</li>
-        </ul>
-
-    
+{% include "Law/law_footer.html" %}
 
 {% endblock content %}

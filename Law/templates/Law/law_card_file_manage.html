@@ -1,14 +1,11 @@
 <div class="row">
     {% for area in areas %}
-    
     <div class="col-sm-4">
-    <div class="card" style="width: 25rem;">
+    <div class="card" style="width: 22rem;">
         <img src="{{ area.image.url }}" class="card-img-top" alt="...">
         <div class="card-body">
           <h3 class="card-title">{{ area.name }}</h3>
-        
           <p class="card-text">{{ area.topic }}</p>
-
           <button type="button" class="btn btn-primary active">
             <a href="{% url 'law-edit-area' area.id %}">Modifier</a>
           </button>
@@ -17,4 +14,5 @@
       </div>
     </div>
       {% endfor %}
+      <hr>
     </div>

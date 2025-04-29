@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from .models import Area, Title, Service, Contact, Member, Folder
-from .forms import FolderForm, LoginForm,ContactForm, MeetingForm, AreaForm
+from .forms import LoginForm,ContactForm, MeetingForm, AreaForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.views import LoginView
 from django.contrib import messages
@@ -100,34 +100,43 @@ def law_home_view(request):
             return redirect('law-home/')  # Rediriger après soumission réussie
     else:
         form = ContactForm()  # Afficher un formulaire vide
+    
+    
+
  
     context = {'areas':areas, 'titles':titles, 'services':services, 'form': form}
 
-    print(titles)
+    print('le title', titles)
 
     return render(request, 'Law/index.html', context)
 
 
 def law_contact_view(request):
 
-
+    contacts = Contact.objects.all()
     titles = Title.objects.all()
-    services = Service.objects.all()
 
-    if request.method == 'POST':
-        form = ContactForm(request.POST)  # Traiter les données du formulaire
+    if request.method == "POST":
+        form = ContactForm(request.POST)
         if form.is_valid():
-            form.save()  # Enregistrer l'objet dans la base de données
-            
-            return redirect('/')  # Rediriger après soumission réussie
+            form.save()
+            return redirect('law-area')  # Redirige vers une page de confirmation
     else:
-        form = ContactForm()  # Afficher un formulaire vide
- 
+        form = ContactForm()
 
-    context = {'titles':titles,'services':services, 'form': form}
+    context = {"form": form, 'contacts':contacts, 'titles':titles, }
+
+    return render(request, "Law/law_contact.html", context)
 
 
-    return render(request, 'Law/law_contact.html', context)
+def law_contact_list_view(request):
+
+    contacts = Contact.objects.all()
+    titles = Title.objects.all()
+
+    context = {'contacts':contacts, 'titles':titles}
+
+    return render(request, 'Law/law_contact_list.html', context)
 
 
 
@@ -297,7 +306,7 @@ def law_edit_title_view(request, title_id):
         title.area = area
         title.name = request.POST.get('name')  # Mettre à jour le champ "name"
         title.save()
-        return redirect('law-file-manager')  # Redirection après la sauvegarde (modifier selon vos besoins)
+        return redirect('law-home')  # Redirection après la sauvegarde (modifier selon vos besoins)
     
     # Envoyer les données au template
     context = {

@@ -1,26 +1,26 @@
 <div class="row">
     {% for area in areas %}
-    
-    <div class="col-sm-4">
-    <div class="card" style="width: 25rem;">
 
-        <div class="card-body">
 
-          
-            {% for title in area.title_set.all %}
-            <h3><a href="{% url 'law-edit-title' title.id%}">{{ title.name }}</a></h3>
-            <ul class="list-group">
-                {% for service in title.service_set.all %}
-                
-                  <li class="list-group-item"><a href="{% url 'law-edit-service' service.id %}">{{ service.name }}</a></li>
-       
-                {% endfor %}
-              </ul>
-            {% endfor %}
-        
+
+    <div class="row">
+              {% for title in area.title_set.all %}
+              <div class="col-sm-4">
+                <div class="card" style="width: 22rem;">
+                  <div class="card-body">
+                    <h3><a href="{% url 'law-edit-title' title.id%}">{{ title.name }}</a></h3>
+                    <ul class="list-group">
+                      {% for service in title.service_set.all %}
+                      <li class="list-group-item"><a href="{% url 'law-edit-service' service.id %}">{{ service.name }}</a></li>
+                      {% endfor %}
+                    </ul>
+              {% endfor %}
+          </div>
         </div>
       </div>
     </div>
+    
+    
       {% endfor %}
     </div>
     

@@ -1,8 +1,14 @@
 {% extends "templates_bases.html" %}
 
 {% block content %}
+{% include "Law/law_navbar.html" %}
+
+
+
+<body class="edit-file-page" style="margin-top: 70px;">
+   
     <div class="container mt-5">
-        <h2>Modifier le titre</h2>
+        <h2 class="">Modifier le branche (titre)</h2>
         <form method="post" action="{% url 'law-edit-title' title.id %}">
             {% csrf_token %}
             
@@ -20,15 +26,19 @@
 
             <!-- Champ Name -->
             <div class="form-group mt-3">
-                <label for="id_name">Nom :</label>
+                <label for="id_name">Branche :</label>
                 <input type="text" id="id_name" name="name" value="{{ title.name }}" class="form-control">
             </div>
             
             <!-- Boutons -->
             <div class="mt-4">
                 <button type="submit" class="btn btn-primary">Enregistrer</button>
-                <a href="{% url 'law-home' %}" class="btn btn-secondary">Annuler</a>
+                <a href="{% url 'law-home' %}" class="btn btn-primary">Annuler</a>
             </div>
         </form>
     </div>
 {% endblock %}
+</body>
+
+
+

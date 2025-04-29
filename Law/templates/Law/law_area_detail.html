@@ -1,28 +1,20 @@
 {% extends "templates_bases.html" %}
-
-
-
 {% block content %}
-
 {% include "Law/law_navbar.html" %}
 
-<h2>NOM DE DOMAINE + DETAILS</h2>
+<body class="area-page-detail">
 
-<h3>{{ area.name }}</h3>
+
+
+<div class="container">
+    
+<h2>{{ area.name }}</h2>
 <h3>{{ area.topic }}</h3>
-<img src="{{ area.image.url }}" alt="{{ area.name }}" style="max-width: 250px;">
-
-<h3>{{ area.tag }}</h3>
-<h3>Services disponibles :</h3>
-            <ul>
-                {% for title in area.title_set.all %}
-                    {% for service in title.service_set.all %}
-                        <li>{{ service.name }}</li>
-                    {% endfor %}
-                {% endfor %}
-            </ul>
+<img src="{{ area.image.url }}"  alt="{{ area.name }}">
+            <h3>{{ area.tag }}</h3>
         </div>
 
-
+    </body>
+</div>
 
 {% endblock content %}

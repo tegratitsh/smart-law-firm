@@ -1,0 +1,79 @@
+{% load static %}
+<style>
+     .footer {
+            background-color: #012D53;
+            padding: 0;
+        }
+        .footer-content {
+            color: white;
+            padding: 20px;
+            margin: 0;
+        }
+    .footer-content img{
+      display: block;
+      width: 150px;
+      height: auto;
+      background-color: #fff;
+      text-align: center;
+      margin-left: auto ;
+      margin-right: auto;
+      margin-bottom: 10px;
+    }
+    .footer-content h5{
+        font-size: 15px;
+        color: gold;
+        margin-bottom: 15px;
+
+        text-transform: uppercase;
+    }
+    .footer-content ul li{
+        font-size: 12px;
+    }
+    .footer-content .detail{
+        font-size: 15px;
+        color: gold;
+    }
+    .footer-content p{
+        text-align: justify;
+    }
+</style>
+    <footer class="footer">
+        <div class="footer-content container-fluid">
+            <div class="row justify-content-center text-center">
+                <div class="col-md-4 col-sm-12">
+                    <h5>Cabinet Juridique de Consulatation, Conseil et Assistance juridique</h5>
+                    <img src="{% static 'Law/images/smart_law_firm_logo.png' %}" alt="SMART LAW FIRM Logo" class="img-fluid">
+                    <p>35, Avenue Ngafula, Quartier Finda, Commune de Ngaliema (Ref. Centre Supérieur) Kinshasa, RDC.</p>
+                    <p class="detail">WhatsApp : + (243) 85 624 81 81</p>
+                    <p class="detail">Appel & SMS : + (243) 81 059 53 52</p>
+                    <p class="text-center detail">Version: SLF-02</p>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <h5>BRANCHES D'INTERVENTION</h5>
+                    <ul class="list-unstyled">
+                        {% for title in titles %}
+                        <li>{{title.name}}</li>
+                        <hr>
+                        {% endfor %}
+                        
+                   
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <h5>À PROPOS D'ELITEROOM</h5>
+                    <p>
+                        Elite-Room est une startup dynamique spécialisée dans l'informatique, offrant des services innovants pour accompagner les entreprises et particuliers dans leur transformation numérique. Elle propose la création de sites web modernes et responsifs, adaptés aux besoins spécifiques de chaque client.
+                    </p>
+                    <p class="detail">WhatsApp : + (243) 85 009 65 25</p>
+                    <p class="detail">Appel & SMS : + (243) 85 748 35 38</p>
+                    <p class="detail">Email: tegratshibanda20@gmail.com</p>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <p class="text-center">Développé par @eliteroom, Tous droits réservés !</p>
+            </div>
+        </div>
+    </footer>
+
+
+

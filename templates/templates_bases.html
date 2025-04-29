@@ -6,44 +6,783 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Smart Law Firm - Cabinet Juridique</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'Law/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'Law/css/style.css' %}">
   </head>
   <style>
-    .card-title{
-      background-color: #2031AC;
-      color: white;
-    }
-    .card-title h3{
-      background-color: white;
-    }
-    .card-body p{
-      font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-      font-size: larger;
-      font-style: italic;
-      text-align: justify;
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+  *{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+  }
+
+  body{
+    padding-top: 50px; /* Ajustez la valeur selon la hauteur de votre navbar */
+    margin: 0; padding: 0;
     }
 
+  /* SECTION NAVBAR : MODIFICATION SUR L'ENSEMBLE DES PAGES (TEMPLATES) */
+  .custom-navbar {
+    background-color: transparent;
+    background:#012D53;
+    opacity:initial;
+    padding: 10px 20px;
+    box-shadow: none; 
+  }
+
+  /* Titre au survol */
+  .custom-navbar .navbar-brand:hover {
+    color: #fff;
+  }
+
+  /* Agrandir les liens */
+  .custom-navbar .nav-link {
+    font-size: 1.2rem; /* Taille augmentée des liens */
+    color: #fff; /* Couleur blanche pour les liens */
+    transition: color 0.3s ease-in-out; /* Effet de transition */
+  }
+
+  .navbar-brand {
+    color: gold; /* Définit la couleur gold pour le lien "SMART LAW FIRM" */
+  }
+
+  /* Effet au survol (hover) */
+  .custom-navbar .nav-link:hover {
+    color: gold;
+    text-decoration:none; 
+  }
+
+  /* SECTION NAVBAR : FIN DE MODIFICATION NAVABR */
+    
+  /* CAROUSEL SECTION : MODIFICATION UNIQUEMENT SUR LE CAROUSOL */
+  #carouselExampleCaptions{
+    margin-top: 63px;
+  }
+  .carousel-item{
+    height: 100vh;
+    min-height: 300px;
+  }
+
+  .carousel-caption{
+    bottom: 40px;
+    z-index: 2;
+  }
+
+    .carousel-caption h2{
+      color: gold;
+      font-size: 45px;
+      margin: auto;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      text-align: center;
+      width: 100%;
+
+      
+    }
+    .carousel-caption h3{
+      text-align: center;
+      color: #fff;
+      margin-bottom: 80px;
+    }
+    .carousel-caption a{
+      color: #fff;
+      font-weight: bolder;
+      text-decoration: none;
+      margin-top: 50px;
+    }
+
+    .carousel-inner::before{
+      content: "";
+      position: absolute;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(0,0,0,0.5);
+      width: 100%;
+      z-index: 1;
+    }
+
+    /*  CAROUSEL SECTION : FIN DE LA MODIFICATION */
+
+    /*  MODIFICATION DES TITRES INDEPENDANTS H2 */
+
+    .branch{
+      margin: 20px;
+      color: #012D53;
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    /*  FIN DE MODIFICATION DES TITRES INDEPENDANTS H2 */
+
+    /* MOFIFICATION 'CARD' SUR LE TEMPLATE DE BASE UNIQUEMENT */
+
+    .card {
+      background-color: inherit; /* Correspond à la couleur du body */
+      border: none;           /* Supprime la bordure de la carte */
+      box-shadow: none;          /* Supprime l'effet 3D de l'ombre */
+      justify-content: space-between;
+      margin: 10px 10px;
+      
+    }
+    .card ul li a{
+      font-size: 20px;
+    }
+    .card-header{
+      background-color: transparent;
+      background:#012D53;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .card-header a{
+      color: gold;
+      text-decoration: none;
+    }
+
+    .card li a{
+      color: #000;
+      text-decoration: none;
+    }
+
+    .card-body {
+      padding: 10px;             /* Ajuste l'espacement interne pour un meilleur rendu */
+    }
+    .card-body h5{
+      color: #1a0d94;
+      font-family: 'Tahoma', Geneva, Verdana, sans-serif;
+      font-size: 20px;
+    }
     .card-body h5 a{
+      color: rgba(26,13,110,1);
+      text-decoration: none;
+    }
+    
+    .row.align-buttons {
+    align-items: flex-start; /* Assure que tout commence à la même hauteur */
+  }
+
+  .image-container {
+    display: flex; /* Conteneur flexible */
+    flex-direction: column; /* Aligne les éléments verticalement */
+    justify-content: space-between; /* Assure une séparation égale */
+  }
+
+  .card-img-top {
+    height: 200px; /* Hauteur uniforme pour toutes les images */
+    object-fit: cover; /* Ajuster l'image sans déformation */
+  }
+
+    
+  .card-title{
+    background-color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .card-body h4 a{
+    font-family: 'Geneva', Verdana, sans-serif;
+    color: red;
+    text-decoration: none;
+  }
+  .card-body p{
+    font-size: larger;
+    font-weight: bold;
+    text-align: justify;
+  }
+
+  .card-img-top {
+    box-shadow: none;
+  }
+  
+  /* FIN DE MODIFICATION CARD TEMPLATE SECTION */
+
+  /*  MODIFICATION DE LA PAGE CONTACT */
+
+  .contact-page{
+      background: url('/media/images/cbgod.jpg');
+     background-position: center;
+     background-size: cover;
+     margin-top: 70px;
+    }
+    .contact-page .contact-text{
+      margin-top: 73px;
+      padding: 20px;
+    }
+    .contact-page .contact-text h2{
+      color: #012D53;
+    }
+    .contact-page .contact-text h3{
+      color: #012D53;
+      font-size: 40px;
+      text-align: center;
+    }
+    .contact-page .contact-text h5{
+      margin-top: 10px;
+      font-size: 20px;
+      text-align: justify;
+    }
+    .contact-page .contact-text a{
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 15px;
+      font-weight: bold;
+      color: red;
+    }
+    .contact-page .contact-form h2{
+      color: gold;
+    }
+    .contact-page .contact-form .form-container{
+      color: #fff;
+    }
+  /* FIN DE MODIFICATION DE LA PAGE CONTACT */
+
+  /* DEBUT DE MODIFICATION : DOMAINE (AREA) */
+    .area-page{
+      margin-top: 70px;
+    }
+    .area-page .area-detail h2{
+      text-align: center;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 25px;
+      color: peru;
+    }
+    .area-page .area-detail h2 a{
+      color: peru;
+      text-decoration: none;
+    }
+    .area-page .area-detail h3{
+      text-align: justify;
+      font-size: 30px;
+    }
+
+    .area-page .area-detail .section-area h5{
+      color: #012D53;
+    }
+    .area-page img{
+      display: block;
+      height: auto;
+      text-align: center;
+      margin-left: auto ;
+      margin-right: auto;
+      margin-bottom: 5px;
+    }
+    
+    .area-page .area-detail h4{
+      font-size: 20px;
+    }
+    .area-page .area-detail .title-name{
+      padding: 10px;
+      color: rebeccapurple;
+    }
+    .area-page h4 a{
+      color: peru;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+    }
+    .area-page .area-card h5 a{
+      color: #012D53;
+
+text-transform: lowercase;
+}
+
+    .area-page .area-card h5{
+      color: firebrick;
+      text-transform: lowercase;
+    }
+    
+    /* FIN DE LA MODIFICATION DE LA PAGE  AREA*/
+    /* DEBUT DE LA MODIFICATION DE LA EQUIPE  */
+    .team-page{
+      margin-top: 70px;
+    }
+    .team-page .area-interest h4{
+      color: peru;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    /* FIN DE LA MODIFICATION DE LA PAGE  EQUIPE*/
+    .area-interest h4{
+      font-size: 30px;
+      color: #012D53;
+      text-transform: uppercase;
+    }
+
+    .area-description p{
+      font-weight: bold;
+      text-transform: lowercase;
+    }
+
+    .align-buttons {
+  display: flex;
+  justify-content: space-between; /* Espace égal entre les colonnes */
+  align-items: flex-end; /* Aligne les éléments en bas pour qu'ils soient à la même hauteur */
+}
+
+.column {
+  flex: 1; /* Assure que chaque colonne occupe un espace égal */
+  margin: 0 10px;
+}
+
+    
+
+    /* FIN DE MODIFICATION : AREA DESCRIPTION  */
+
+    /* DEBUT DE MODIFICATION DES BOUTON SUR L'ENSEMBLE DE PAGES*/
+    .btn-primary {
+      background-color: #012053; /* Bleu sombre */
+      border-color:#012D53;    /* Même couleur pour les bordures */
+      color: #fff;
+      font-weight:initial;        /* Texte en gras */
+      padding: 10px 20px;       /* Espacement intérieur */
+      border-radius: 5px; 
+      margin: 5px;      /* Coins arrondis */
+      transition: all 0.3s ease; /* Animation lors du survol */
+      width: 30%;
+    }
+
+    .btn-primary a{
+      text-decoration: none;    /* Supprime le soulignement */
+      font-size: large;
+      color: #fff;             /* Garantit que le texte reste blanc */
+    }
+
+    /* Effet de survol */
+    .btn-primary:hover {
+      background-color:red; /* Teinte légèrement plus foncée */
+      border-color: none;    /* Bordure assortie */
+    }
+
+    .btn-primary a:hover {
+      color: #1a0d94;           /* Couleur du texte au survol 1a0d94*/
+    }
+    
+    /* Effet de survol */
+    .btn-primary:hover {
+      background-color: gold; /* Teinte légèrement plus foncée */
+      border-color: gold;    /* Bordure assortie */
+      color: #000;
+    }
+
+    .btn-primary a:hover {
+      color: #000;           /* Couleur du texte au survol */
+    }
+
+    /* FIN DE MODIFICATION DES BOUTON SUR L'ENSEMBLE DE PAGES*/
+
+    /* MODIFICATION SUR LE FORMULAIRE */
+
+    .area-interest a{
+
+      text-decoration: none;
+    }
+    .area-interest h4 a{
+      color: #1a0d94;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .area-interest h5 a{
+      color: #000;
+    }
+
+    .bg-form{
+      margin-top: 10px;
+    }
+    .bg-form h2 a{
       color: #fff;
       text-decoration: none;
     }
     .bg-form {
-    background-color: #2dc1AC; /* Exemple : une couleur bleu clair */
-    padding: 20px; /* Ajoute un peu d'espace interne */
-    border-radius: 10px; /* Coins arrondis pour une esthétique moderne */
+      color: #012D53;
+      background-color: transparent; /* Exemple : une couleur bleu clair */
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      padding: 20px; /* Ajoute un peu d'espace interne */
+      border-radius: 10px; /* Coins arrondis pour une esthétique moderne */
+      backdrop-filter: blur(10px);
+    }
+    .bg-form .btn-primary{
+      color: gold;
+
+    }
+    .bg-form .btn-primary:hover{
+      background-color: peru;
+      color: #fff;
+
+    }
+
+    .bg-image {
+      background-image: url('/Law/static/Law/images/slf_about.jpg'); /* Remplacez 'URL_DE_L_IMAGE' par le chemin de votre image */
+      background-size: cover; /* Ajuste l'image pour couvrir tout l'arrière-plan */
+      background-position: center; /* Centre l'image */
+      padding: 20px; /* Ajoute un espace interne */
+      border-radius: 10px; /* Coins arrondis pour un effet moderne */
+    }
+
+    /* FIN DE MODIFICATION SUR LE FORMULAIRE */
+    
+    .law-file-manage{
+      margin-top: 70px;
+    }
+    .law-file-manage .manage h3{
+      font-size: 35px;
+      text-align: center;
+      text-transform: uppercase;
+      color: peru;
+    }
+    .law-file-manage .manage p{
+      
+      color: red;
+      font-size: 18px;
+    }
+    /* MODIFICATION DE LA PAGE CONTACT */
+    
+/* FIN DE LA MODIFICATION DE LA PAGE CONTACT */
+
+
+   
+
+    .area-page-detail{
+      margin-top: 63px;
+    }
+
+    .area-page-detail h2{
+      font-size: 40px;
+      text-align: center;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .area-page-detail h3{
+      font-size: 30px;
+      text-align: center;
+      text-align: justify;
+    }
+      .area-page-detail img{
+      display: block;
+      height: auto;
+      text-align: center;
+      margin-left: auto ;
+      margin-right: auto;
+      margin-bottom: 5px;
+      border-radius: 5px;
+      max-width: 50%;
+      }
+
+      /* MODIFICATION DE LA PAGE TITLE DETAIL (page secondaire) */
+      .title-detail-page{
+     background-position: center;
+     background-size: cover;
+      height: 100vh;
+        margin-top: 63px;
+      }
+      
+
+      .title-detail-page h3{
+        color: #012D53;
+      font-size: 30px;
+      text-align: center;
+      margin-top: 10px;
+      text-transform: uppercase;
+    }
+    .title-detail-page h2{
+      font-size: 20px;
+      text-align: center;
+      color: red;
+      padding: 10px;
+    }
+    .title-detail-page ul li{
+      margin-left: 10px;
+      font-size: 20px;
+    }
+
+    .title-detail-page h4{
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .title-detail-page .title-detail-section{
+      color: yellow;
+      margin-top: 20px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+      background-color: transparent;
+
+    }
+
+
+    .body-login-page .login-form{
+      background: url('/media/images/connexion.jpg'); 
+     background-position: center;
+     background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .body-login-page .login-form section{
+      background-color: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      width: 420px;
+    }
+    .body-login-page .login-form h1{
+      margin-bottom: 20px;
+      font-size: 30px;
+      text-align: center;
+      color: yellow;
+    }
+    .body-login-page .login-form .input-box{
+      position: relative;
+      margin-bottom: 25px;
+      width: 100%;
+    }
+    .body-login-page .login-form .input-box input{
+      background-color: transparent;
+      border-radius: 25px;
+      padding: 15px;
+      width: 100%;
+      outline: none;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      color: red;
+      padding-right: 40px;
+    }
+    .body-login-page .login-form .input-box input::placeholder{
+      color: gold;
+    }
+   .body-login-page .login-form .remember-forgot{
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    color: gold;
+    margin-bottom: 25px;
+   }
+
+   .body-login-page .login-form .remember-forgot a{
+    color: gold;
+    transition: 0.5s;
+    font-weight: bold;
+    text-decoration: none;
+   }
+   .body-login-page .login-form .login-btn{
+    border-radius: 25px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    font-weight: bold;
+    outline: none;
+    transition: 0.5s;
+    padding: 15px;
+    width: 100%;
+   }
+   .body-login-page .login-form .login-btn:hover{
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+   }
+
+     /* DEBUT DE LA MODIFICATION DE LA PAGE ABOUT*/
+
+     .about-page .about-style{
+      margin-top: 70px;
+     }
+     .about-page .about-style h3{
+      font-size: 20px;
+      text-align: justify;
+     }
+     .about-page .about-style h1{
+      font-weight: bold;
+      font-size: 25px;
+      text-transform: uppercase;
+      text-align: center;
+     }
+     .about-page .about-style h1 a{
+      text-decoration: none;
+     }
+     .about-page .about-style img{
+      display: block;
+      width: 400px;
+      height: auto;
+      text-align: center;
+      margin-left: auto ;
+      margin-right: auto;
+      margin-bottom: 5px;
+    
+     }
+     .team-page img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }
-.bg-image {
-    background-image: url('/Law/static/Law/images/slf_about.jpg'); /* Remplacez 'URL_DE_L_IMAGE' par le chemin de votre image */
-    background-size: cover; /* Ajuste l'image pour couvrir tout l'arrière-plan */
-    background-position: center; /* Centre l'image */
-    padding: 20px; /* Ajoute un espace interne */
-    border-radius: 10px; /* Coins arrondis pour un effet moderne */
+
+    .team-page h6{
+      text-transform: capitalize;
+      font-weight: bold;
+      text-align: justify;
+      font-size: 15px;
+    }
+
+
+     .team-page .container a{
+      color: #012D53;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center;
+      text-decoration: none;
+     }
+      /* FIN DE LA MODIFICATION DE LA PAGE ABOUT*/
+
+      table {
+    width: 100%;
+    border-collapse: collapse;
 }
+
+th, td {
+  color:#007bff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+th {
+    background-color: #007bff;
+    color: #000;
+}
+
+  /* SECTION FOOTER : STYLE CSS*/
+
+
+  footer{
+    
+    background-color: #012D53;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+    /* Responsive Design pour petits écrans */
+@media (max-width: 768px) {
+  .custom-navbar{
+      padding: 10px;
+    }
+
+    .carousel-item {
+        height: 20vh;
+    }
+    .carousel-caption{
+    bottom: 10px;
+    z-index: 2;
+  }
+
+
+    .carousel-caption h2 {
+        font-size: 15px;
+    }
+
+    .carousel-caption h3 {
+      font-size: 10px;
+      margin-top: 10px;
+    }
+
+    .carousel-caption a {
+        font-size: 14px;
+    }
+    .card-text{
+      font-weight: lighter;
+      font-size: 15px;
+    }
+    .card ul li a{
+      font-size: 15px;
+    }
+
+    .branch{
+      font-size: 20px;
+      color: purple;
+    }
+    .contact-page .contact-text h3{
+      font-size: 23px;
+      color: #012D53;
+      margin-bottom: 10px;
+    }
+
+    .contact-page .contact-text h5{
+
+      margin-top: 15px;
+      font-size: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .custom-navbar{
+      padding: 10px;
+    }
+
+    .carousel-item {
+        height: 20vh;
+    }
+    .carousel-caption{
+    bottom: 10px;
+    z-index: 2;
+  }
+
+
+    .carousel-caption h2 {
+        font-size: 15px;
+    }
+
+    .carousel-caption h3 {
+      font-size: 10px;
+      margin-top: 10px;
+    }
+
+    .carousel-caption a {
+        font-size: 14px;
+    }
+    .card-text{
+      font-weight: lighter;
+      font-size: 15px;
+    }
+    .card ul li a{
+      font-size: 15px;
+    }
+
+    .branch{
+      font-size: 20px;
+      color: purple;
+    }
+    .contact-page .contact-text h3{
+      font-size: 23px;
+      color: #012D53;
+      margin-bottom: 10px;
+    }
+
+    .contact-page .contact-text h5{
+
+      margin-top: 15px;
+      font-size: 15px;
+    }
+}
+
+/* CAROUSEL SECTION : FIN DE LA MODIFICATION */
   </style>
   <body>
     {% block content %}
       
     {% endblock content %}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="{% static 'Law/js/bootstrap.min.js' %}"></script>
   </body>
 </html>

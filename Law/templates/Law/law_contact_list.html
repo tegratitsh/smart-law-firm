@@ -1,0 +1,53 @@
+{% extends "templates_bases.html" %}
+
+
+
+{% block content %}
+
+{% include "Law/law_navbar.html" %}
+
+<body class="contact-page">
+
+<div class="container contact-text">
+
+
+    <h3>Listes de Personnes qui nous ont contactés</h3>
+
+    <table border="1" style="color: #fff;">
+        <thead>
+            <tr>
+                <th>NOM COMPLET</th>
+                <th>EMAIL</th>
+                <th>NUMERO</th>
+                <th>PROFESSION</th>
+                <th>OBJECT</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.full_name }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.phone }}</td>
+                <td>{{ contact.profession }}</td>
+                <td>{{ contact.description }}</td>
+            </tr>
+
+            {% endfor %}
+            
+        </tbody>
+    </table>
+
+      
+    
+  
+</div>
+  
+
+
+</body>
+
+{% include "Law/law_footer.html" %}
+
+
+{% endblock content %}
